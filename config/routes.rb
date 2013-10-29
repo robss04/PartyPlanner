@@ -1,4 +1,4 @@
-ToddyCat::Application.routes.draw do
+PartyPlanner::Application.routes.draw do
   
   # Sign in/out
   get    'login' => 'session#new', as: :login

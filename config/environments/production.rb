@@ -1,4 +1,4 @@
-ToddyCat::Application.configure do
+PartyPlanner::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

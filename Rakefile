@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ToddyCat::Application.load_tasks
+PartyPlanner::Application.load_tasks
