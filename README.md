@@ -1,4 +1,4 @@
-PartyPlanner
-============
+toddycat
+========
 
-Bachelorette Party Planner
+Rails 4 app with mongoid.
