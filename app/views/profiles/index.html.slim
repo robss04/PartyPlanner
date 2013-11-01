@@ -1,0 +1,10 @@
+h1 Profiles
+
+table
+  - @profile.each do |p|
+    tr
+      td style="width: 75%" #{p.name}
+      td style="width: 5%" = link_to "Show", show_profile_url(event)
+      td style="width: 5%" = link_to "Edit", edit_profile_url(event)
+      
+      

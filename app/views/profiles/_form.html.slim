@@ -1,0 +1,17 @@
+= form_for @profile do |p|
+  p
+    = p.label :city
+    = p.label :state
+    br
+    = p.text_field :city, placeholder: "City"
+    = p.text_field :state
+  p
+    = p.label :phone_number
+    br
+    = p.text_field :phone_number
+  p 
+    = p.label :travel_booked
+    br
+    = p.check_box :travel_booked
+  p
+    = p.submit
