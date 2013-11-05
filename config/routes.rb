@@ -16,12 +16,9 @@ PartyPlanner::Application.routes.draw do
   
   get 'privacy' => 'site#privacy'
   get 'terms'   => 'site#terms'
-  
-  root 'site#index'
-
 
   #events
-  get 'events' => 'events#index', as: :event# list all events
+  get 'events' => 'events#index', as: :event # list all events
   get 'events/new' => 'events#new', as: :create_event # form to add a new event 
   get 'events/:id' => 'events#show', as: :show_event # show one event
   get 'events/:id/edit' => 'events#edit', as: :edit_event# form to edit event
@@ -30,8 +27,6 @@ PartyPlanner::Application.routes.draw do
   put 'events/:id' => 'events#update' # update a event
   patch 'events/:id' => 'events#update' # update an attribute of a event
   delete 'events/:id' => 'events#destroy' # delete a event
-
-
 
   #profiles
   get 'profiles' => 'profiles#index', as: :profiles # list all events
@@ -42,6 +37,7 @@ PartyPlanner::Application.routes.draw do
   put 'profiles/:id' => 'profiles#update'
   patch 'profiles/:id' => 'profiles#update'
   delete 'profiles/:id' => 'profiles#destroy'
-
+  
+  root 'site#index'
 
 end

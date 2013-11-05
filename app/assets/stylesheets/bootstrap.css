@@ -415,7 +415,11 @@ cite {
 }
 
 .text-muted {
-  color: #999999;
+  color: #CC0099;
+}
+
+.text-muted a {
+  color: #666633;
 }
 
 .text-primary {
@@ -4195,6 +4199,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand {
     margin-left: -15px;
+    color: #CC0099;
   }
 }
 

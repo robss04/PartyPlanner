@@ -1,18 +1,41 @@
-.row
-  .col-lg-6.col-lg-offset-3
-    table#users-table.table.table-bordered.table-striped
+link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type='text/css'
+#wrap
+  #dashboard
 
-    button = link_to "New Event", create_event_url
-    br
-    br
-    button = link_to "View Events", event_url
-    br
-    br
-    button = link_to "Create Profile", create_profile_url
+    h1 = "#{current_user.name}'s Dashboard"
+    .col-lg-12.col-lg-offset-0
+      table#users-table.table.table-bordered.table-striped
+            .col-md-4.profile
+              h4 Personal Profile
+              button = link_to "Create Profile", create_profile_url
+            .col-md-4.profile
+              h4 Events
+              button = link_to "New Event", create_event_url
+              br
+              br
+              button = link_to "View Events", event_url
+            .col-md-4.profile
+              h4 Guest List 
+            .col-md-4.profile
+              h4 To Do List
 
 
 
-      / caption Our users!
+/ <!-- .row
+/   .col-lg-6.col-lg-offset-3
+/     table#users-table.table.table-bordered.table-striped
+
+/     button = link_to "New Event", create_event_url
+/     br
+/     br
+/     button = link_to "View Events", event_url
+/     br
+/     br
+/     button = link_to "Create Profile", create_profile_url
+
+/  -->
+
+      / <!-- / caption Our users!
       / thead
       /   tr
       /     th Name
@@ -23,4 +46,4 @@
       /     tr
       /       td #{user.name}
       /       td #{user.email}
-      /       td #{user.created_at}
+      /       td #{user.created_at} -->

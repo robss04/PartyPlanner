@@ -380,7 +380,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     var that      = this
 
     if (!$next.length) {
-      if (!this.options.wrap) return
+      if (!this.options) return
       $next = this.$element.find('.item')[fallback]()
     }
 

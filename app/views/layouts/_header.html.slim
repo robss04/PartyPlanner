@@ -1,4 +1,7 @@
-.navbar.navbar-inverse.navbar-fixed-top
+#header.navbar-inverse.navbar-fixed-top
   .container
     span.navbar-brand.logo PartyPlanner
-    
+    ul.nav.navbar-nav.pull-right
+      li
+        = link_to_unless_current "Sign in", login_url, class: "login-link"
+       
