@@ -28,6 +28,18 @@ PartyPlanner::Application.routes.draw do
   patch 'events/:id' => 'events#update' # update an attribute of a event
   delete 'events/:id' => 'events#destroy' # delete a event
 
+  #tasks
+  get 'todo' => 'todo#index', as: :todos # list all events
+  get 'todo/new' => 'todo#new', as: :create_todo # form to add a new event 
+  get 'todo/:id' => 'todo#show', as: :show_todo # show one event
+  get 'todo/:id/edit' => 'todo#edit', as: :edit_todo # form to edit event
+  
+  post 'todo' => 'todo#create' # create a new event
+  put 'todo/:id' => 'todo#update' # update a event
+  patch 'todo/:id' => 'todo#update' # update an attribute of a event
+  delete 'todo/:id' => 'todo#destroy' # delete a event
+
+
   #profiles
   get 'profiles' => 'profiles#index', as: :profiles # list all events
   get 'profiles/new' => 'profiles#new', as: :create_profile # add person profile form
@@ -37,6 +49,7 @@ PartyPlanner::Application.routes.draw do
   put 'profiles/:id' => 'profiles#update'
   patch 'profiles/:id' => 'profiles#update'
   delete 'profiles/:id' => 'profiles#destroy'
+
   
   root 'site#index'
 

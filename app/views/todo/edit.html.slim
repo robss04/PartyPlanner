@@ -1,0 +1,17 @@
+h1 Edit #{@todo.task}
+
+= form_for @todo, url: "/todo/#{@todo.id}", method: :put do |t|
+  p
+    = t.label :task
+    br
+    = t.text_field :task
+  p
+    = t.label :task_duedate
+    br
+    = t.date_field :task_duedate
+  p
+    = t.label :task_owner
+    br
+    = t.text_field :task_owner
+  p
+    = t.submit

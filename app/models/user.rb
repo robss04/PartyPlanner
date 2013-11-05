@@ -3,6 +3,8 @@ class User
   include Mongoid::Timestamps
   
   attr_accessor :password, :password_confirmation
+
+  has_many :todos
   
   field :id, type: String
   

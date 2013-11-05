@@ -1,0 +1,12 @@
+caption = @todo.task 
+  thead
+    tr
+      th Task
+      th Due Date
+      th Owner
+  tbody
+    - @todo.each do |task|
+      tr
+        td #{todo.task}
+        td #{todo.task_duedate('%m/%d/%Y')}
+        td #{todo.task_owner}

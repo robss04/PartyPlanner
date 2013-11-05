@@ -10,6 +10,10 @@ link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type=
               button = link_to "Create Profile", create_profile_url
             .col-md-4.profile
               h4 Events
+              ul
+                - @events.each do |event|
+                  = link_to "#{event.event_name}""  #{event.event_date}", show_event_url(event)
+
               button = link_to "New Event", create_event_url
               br
               br
@@ -18,6 +22,7 @@ link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type=
               h4 Guest List 
             .col-md-4.profile
               h4 To Do List
+              button = link_to "Create New Task", create_todo_url
 
 
 

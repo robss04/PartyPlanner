@@ -1,0 +1,14 @@
+p
+  = f.label :task
+  br
+  = f.text_field :task
+p
+  = t.label :task_duedate
+  br
+  = t.date_field :task_duedate
+p
+  = t.label :task_owner
+  br
+  = t.select :task_owner, [[1, User.first.name], [2, User.last.name]]
+p
+  = t.submit
