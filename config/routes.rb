@@ -37,7 +37,7 @@ PartyPlanner::Application.routes.draw do
   post 'todo' => 'todo#create' # create a new event
   put 'todo/:id' => 'todo#update' # update a event
   patch 'todo/:id' => 'todo#update' # update an attribute of a event
-  delete 'todo/:id' => 'todo#destroy' # delete a event
+  delete 'todo/:id' => 'todo#destroy', as: :delete_todo # delete a event
 
 
   #profiles

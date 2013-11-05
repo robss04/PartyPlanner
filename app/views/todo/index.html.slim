@@ -5,8 +5,8 @@ table
     tr
       td style="width: 40%" #{todo.task}
       td style="width 40%" #{todo.task_duedate}
-      td style="width: 5%" = link_to "Show", show_task_url(event)
-      td style="width: 5%" = link_to "Edit", edit_task_url(event)
-      td style="width: 5%" = link_to "Delete", task_url(event), method: :delete, confirm: "Are you sure?"
+      td style="width: 5%" = link_to "Show", show_todo_url(task)
+      td style="width: 5%" = link_to "Edit", edit_todo_url(task)
+      td style="width: 5%" = link_to "Delete", delete_todo_url(task), method: :delete, confirm: "Are you sure?"
 
       

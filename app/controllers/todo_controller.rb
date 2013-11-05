@@ -49,7 +49,7 @@ class TodoController < ApplicationController
   
   def todo_params
     params.require(:todo).permit(
-      :task, :task_duedate, :task_owner    )
+      :task, :task_duedate, :task_owner)
   end
 end
 

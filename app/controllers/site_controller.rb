@@ -9,8 +9,7 @@ class SiteController < ApplicationController
     else
     	render "main"
 
-    end
-      
+    end   
   end
   
 
