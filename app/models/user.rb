@@ -5,6 +5,7 @@ class User
   attr_accessor :password, :password_confirmation
 
   has_many :todos
+
   
   field :id, type: String
   

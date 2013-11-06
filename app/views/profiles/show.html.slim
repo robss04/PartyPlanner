@@ -1,16 +1,2 @@
-	
-
-caption = @profile.name	
-  thead
-    tr
-      th Name
-      th Location
-      th Phone Number
-      th Travel Booked
-  tbody
-    - @profile.each do |p|
-      tr
-        td #{p.name}
-        td #{p.city}, #{p.state}
-        td #{p.phone_number}  
-        td #{p.travel_booked}
+p = @profile.state
+p = image_tag @profile.image.url

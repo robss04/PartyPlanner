@@ -7,17 +7,19 @@ link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type=
       table#users-table.table.table-bordered.table-striped
             .col-md-4.profile
               h4 Personal Profile
+              br
+
               button = link_to "Create Profile", create_profile_url
             .col-md-4.profile
               h4 Events
               ul
                 - @events.each do |event|
-                  = link_to "#{event.event_name}""  #{event.event_date}", show_event_url(event)
+                  = link_to "#{event.event_name}", show_event_url(event)
+                  = "  #{event.event_date}"
+                  / # = link_to "Edit", edit_event_url(event)
 
-              button = link_to "New Event", create_event_url
-              br
-              br
-              button = link_to "View Events", event_url
+              button style="margin-right: 4px; font-size: 12px; width: 40%" = link_to "Create New", create_event_url
+              button style="margin-right: 4px; font-size: 12px;width: 40%" = link_to "View All", event_url
             .col-md-4.profile
               h4 Guest List 
             .col-md-4.profile

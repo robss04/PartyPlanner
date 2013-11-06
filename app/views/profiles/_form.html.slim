@@ -1,4 +1,4 @@
-= form_for @profile do |p|
+= form_for @profile, url: profiles_url, method: :post do |p|
   p
     = p.label :city
     = p.label :state
@@ -8,10 +8,13 @@
   p
     = p.label :phone_number
     br
-    = p.text_field :phone_number
+    = p.text_field :phone_number, placeholder: "(XXX) XXX-XXXX"
   p 
     = p.label :travel_booked
     br
     = p.check_box :travel_booked
+  p
+    = p.file_field :image
+    = p.submit 'Save Image'
   p
     = p.submit

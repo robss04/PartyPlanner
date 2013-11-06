@@ -19,26 +19,26 @@ Registrant.create([
   }
 ])
 
-User.create([
-  {
-    id: SecureRandom.urlsafe_base64,
-    name: "Chaz",
-    email: "chas@munat.com",
-    password: "123",
-    password_confirmation: "123"
-  },
-  {
-    id: SecureRandom.urlsafe_base64,
-    name: "Chad",
-    email: "chad@munat.com",
-    password: "123",
-    password_confirmation: "123"
-  },
-  {
-    id: SecureRandom.urlsafe_base64,
-    name: "Cad",
-    email: "cad@munat.com",
-    password: "123",
-    password_confirmation: "123"
-  }
-])
+# User.create([
+#   {
+#     id: SecureRandom.urlsafe_base64,
+#     name: "Chaz",
+#     email: "chas@munat.com",
+#     password: "123",
+#     password_confirmation: "123"
+#   },
+#   {
+#     id: SecureRandom.urlsafe_base64,
+#     name: "Chad",
+#     email: "chad@munat.com",
+#     password: "123",
+#     password_confirmation: "123"
+#   },
+#   {
+#     id: SecureRandom.urlsafe_base64,
+#     name: "Cad",
+#     email: "cad@munat.com",
+#     password: "123",
+#     password_confirmation: "123"
+#   }
+# ])

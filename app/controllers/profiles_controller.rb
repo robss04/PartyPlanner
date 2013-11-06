@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
   # POST to this to create a new person, then redirect to show
   def create
     @profile = Profile.create(profile_params)
-    
+    @profile.save
     redirect_to show_profile_url(@profile)
   end
   
@@ -30,9 +30,10 @@ class ProfilesController < ApplicationController
   # then redirect to show
   def update
     @profile = Profile.find_by(id: params[:id])
-    
+    # @profile.image = params[:id][:image]
+    @profile.update(profile_params)
     @profile.update_attributes(profile_params)
-    
+
     redirect_to show_profile_url(@profile)
   end
   
@@ -49,7 +50,7 @@ class ProfilesController < ApplicationController
   
   def profile_params
     params.require(:profile).permit(
-      :name, :city, :state, :phone_number, :travel_booked
+      :name, :city, :state, :phone_number, :travel_booked, :image
     )
   end
 end

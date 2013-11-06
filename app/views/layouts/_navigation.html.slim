@@ -10,6 +10,7 @@
       ul.nav.navbar-nav.pull-right
         li
           = link_to_unless_current "Personal Dashboard", root_url, class: "root-link"
+        
         li
           = link_to "Sign out", logout_url, method: :delete, class: "logout-link"
 
