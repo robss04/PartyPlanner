@@ -8,7 +8,6 @@ PartyPlanner::Application.routes.draw do
   # Registration
   get  'register/:code' => 'registration#new', as: :register
   post 'register/:code' => 'registration#create'
-  put   'register/:code/:' => 'registration#edit', as: :profile_update
   
   # Password reset
   get   'reset/:code' => 'password#edit', as: :reset
@@ -43,15 +42,13 @@ PartyPlanner::Application.routes.draw do
 
   #profiles
   get 'profiles' => 'profiles#index', as: :profiles # list all events
-  get 'profiles/new' => 'profiles#new', as: :create_profile # add person profile form
   get 'profiles/:id' => 'profiles#show', as: :show_profile # show profile
   get 'profiles/:id/edit' => 'profiles#edit', as: :edit_profile #edit profile form
 
-  post 'profiles/' => 'profiles#create'
-  put 'profiles/:id' => 'profiles#update'
-  patch 'profiles/:id' => 'profiles#update'
+  # post 'profiles' => 'profiles#create', as: :create_profile
+  put 'profiles/:id' => 'profiles#update', as: :update_profile
+  patch 'profiles/:id' => 'profiles#update', as: :patch_profile
   delete 'profiles/:id' => 'profiles#destroy'
-
 
 
   

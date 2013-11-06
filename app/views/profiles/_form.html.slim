@@ -1,9 +1,14 @@
-= form_for @profile, url: profiles_url, method: :post do |p|
+= form_for @user_profile, url: update_profile_url(@user_profile), method: :put do |p|
+  p 
+    => p.label :name
+    = p.text_field :name
+  p 
+    => p.label :email
+    = @user_profile.email
   p
-    = p.label :city
-    = p.label :state
+    = p.label :location
     br
-    = p.text_field :city, placeholder: "City"
+    => p.text_field :city, placeholder: "City"
     = p.text_field :state, placeholder: "State"
   p
     = p.label :phone_number
@@ -14,7 +19,7 @@
     br
     = p.check_box :travel_booked
   p
+    = image_tag @current_user.image.url
     = p.file_field :image
-    = p.submit 'Save Image'
   p
     = p.submit

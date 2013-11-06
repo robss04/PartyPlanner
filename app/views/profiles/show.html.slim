@@ -1,2 +1,9 @@
-p = @profile.state
-p = image_tag @profile.image.url
+- if @user.state
+	p = @user.state
+
+p = @user.name
+p = @user.email
+p = @user.city
+
+/ # p = image_tag @user_profile.image.url
+p test

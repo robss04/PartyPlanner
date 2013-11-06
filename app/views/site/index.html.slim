@@ -1,4 +1,5 @@
 link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type='text/css'
+
 #wrap
   #dashboard
 
@@ -7,9 +8,14 @@ link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type=
       table#users-table.table.table-bordered.table-striped
             .col-md-4.profile
               h4 Personal Profile
-              br
-
-              button = link_to "Create Profile", create_profile_url
+              .col-sm-12
+                p style="float: left; margin-right: 8px" = image_tag @current_user.image.thumb.url
+                p #{current_user.name}
+                p #{current_user.city}, #{current_user.state}
+                br
+                b Contact Information
+                p #{current_user.email}
+                p #{current_user.phone_number}
             .col-md-4.profile
               h4 Events
               ul

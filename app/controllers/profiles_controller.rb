@@ -1,56 +1,72 @@
 class ProfilesController < ApplicationController
-  # List all persons (show table of persons in HTML)
-  def index
-    @profile = Profile.all.entries
-  end
   
-  # Show detail for a person with ID = params[:id] (in HTML)
+  before_action :set_users
+  
   def show
-    @profile = Profile.find_by(id: params[:id])
+    @user = current_user
+    # @users = User.all.entries
+    # @recommendations = Recommendation.where(profile_name: params[:profile_name]).sort_by { |h| h[:created_at] }.reverse!
   end
-  
-  # Form for adding a new person (in HTML)
-  def new
-    @profile = Profile.new
-  end
-  
-  # POST to this to create a new person, then redirect to show
-  def create
-    @profile = Profile.create(profile_params)
-    @profile.save
-    redirect_to show_profile_url(@profile)
-  end
-  
-  # Form for updating a person with ID = params[:id] (in HTML)
-  def edit
-    @profile = Profile.find_by(id: params[:id])
-  end
-  
-  # PUT or PATCH to this to update person with ID = params[:id]
-  # then redirect to show
-  def update
-    @profile = Profile.find_by(id: params[:id])
-    # @profile.image = params[:id][:image]
-    @profile.update(profile_params)
-    @profile.update_attributes(profile_params)
 
-    redirect_to show_profile_url(@profile)
+  def edit
+    redirect_to profile_url(@user_profile.profile_name) unless @current_user == @user_profile
+    @current_user = current_user 
+    @user_profile = User.find(params[:id])
+    # @users = User.all.entries
+    # @recommendations = Recommendation.where(profile_name: params[:profile_name]).sort_by { |h| h[:created_at] }.reverse!
   end
-  
-  # Destroy the person with ID = params[:id]
-  # then redirect to index to list remaining persons
-  def destroy
-    @profile = Profile.find_by(id: params[:id])
-    @profile.destroy
-    
-    redirect_to show_profile_url
+
+  def update
+      @current_user = current_user 
+      @user_profile = User.find(params[:id])
+      if @user_profile.update(user_params)
+        redirect_to show_profile_path(@user_profile)
+      else
+        render 'edit'
+      end
+
+      # if @current_user == @user_profile
+      #   if params[:user][:image].present?
+      #     @user_profile.image = params[:user][:image]
+      #   end
+      #     @user_profile.update(user_params)
+      #     redirect_to profile_url
+      # else
+      #   if params[:user][:recommendations][:comment].present?
+      #     @recommendation = @current_user.recommendations.create( profile_name: @user_profile.profile_name, 
+      #                           comment: params[:user][:recommendations][:comment])
+      #     @recommendation.save    
+      #     flash.now[:notice] = "Recommendation added!"
+      #     @recommendations = Recommendation.where(profile_name: params[:profile_name]).sort_by { |h| h[:created_at] }.reverse!
+      #     respond_to do |format|
+      #       format.js
+      #   end
+      # end
+    # end   
   end
-  
+
+  # def create
+  #   @user_profile = User.find_by(profile_name: params[:profile_name])
+
+  #   redirect_to show_profile_url(@user_profile)
+  # end
+
   private
-  
-  def profile_params
-    params.require(:profile).permit(
-      :name, :city, :state, :phone_number, :travel_booked, :image
+
+  def set_users
+    @users = User.all.entries
+  end
+
+  def image_param
+    params.require(:user).permit(
+      :image
     )
   end
+
+  def user_params
+    params.require(:user).permit(
+      :name, :city, :state, :phone_number, :travel_booked, :image, :description
+    )
+  end
+
 end

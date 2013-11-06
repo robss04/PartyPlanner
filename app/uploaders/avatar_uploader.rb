@@ -12,9 +12,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  # def store_dir
-  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  # end
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -30,12 +30,23 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-
-  # Create different versions of your uploaded files:
-  version :thumb do
-    process :resize_to_limit => [55, 55]
+  def fix_exif_rotation #this is my attempted solution
+    manipulate! do |img|
+      img.tap(&:auto_orient)
+    end
   end
 
+  process :fix_exif_rotation
+
+
+  # Create different versions of your uploaded files:
+  process :resize_to_fit => [250, 250]
+
+   version :thumb do
+     process :resize_to_fit => [60, 60]
+   end
+
+  
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

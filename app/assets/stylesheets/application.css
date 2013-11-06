@@ -151,6 +151,12 @@ code {
   border-bottom: 1px solid #cccccc;
 } 
 
+.profile p {
+  padding: 2px;
+  line-height: 6px;
+}
+
+
 .profile button {
   font-size: 14px;
   border-radius: 10px;

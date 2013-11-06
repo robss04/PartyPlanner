@@ -4,6 +4,9 @@ class User
   
   attr_accessor :password, :password_confirmation
 
+  
+  mount_uploader :image, AvatarUploader
+
   has_many :todos
 
   
@@ -23,6 +26,13 @@ class User
   validates :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, confirmation: true
+
+  field :name
+  field :city, type: String
+  field :state, type: String
+  field :phone_number, type: String
+  field :travel_booked, type: Boolean, default: false
+  field :image
   
   def authenticate(password)
     self.fish == BCrypt::Engine.hash_secret(password, self.salt)

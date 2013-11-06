@@ -11,9 +11,6 @@ class SiteController < ApplicationController
 
     end   
   end
-  
-
-
 
 
   def privacy
