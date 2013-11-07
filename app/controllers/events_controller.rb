@@ -17,8 +17,10 @@ class EventsController < ApplicationController
   # POST to this to create a new person, then redirect to show
   def create
     @event = Event.create(event_params)
+    @event.created_by = current_user
+    @event.save
     
-    redirect_to event_url(@event)
+    redirect_to event_url
   end
   
   # Form for updating a person with ID = params[:id] (in HTML)

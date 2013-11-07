@@ -1,12 +1,8 @@
-caption = @event.event_name	
-  thead
-    tr
-      th Event
-      th Date
-      th Location
-  tbody
-    - @event.each do |event|
-      tr
-        td #{event.event_name}
-        td #{event.event_date}
-        td #{event.event_location}
+h1 = @event.event_name	
+
+  b #{event.event_date}
+  p = @event.event_location
+
+
+.col-md-4.profile
+          h4 Guest List 

@@ -1,4 +1,28 @@
 .eventform 
 	h1 Add a new event
 
-	== render partial: 'form'
+	= form_for @event, url: "/events" do |e|
+	  p
+	    = e.label :event_name
+	    br
+	    = e.text_field :event_name
+	  p 
+	    = e.label :event_type
+	    br
+	    = e.select :event_type, ["Girl's Night Out", "Girl's Weekend"]
+	  p
+	    = e.label :event_location
+	    br
+	    = e.text_field :event_location
+	  p
+	    = e.label :event_date
+	    br
+	    = e.date_field :event_date
+	  p 
+	    = e.label :travel_required
+	    br
+	    = e.check_box :travel_required 
+	    br
+	    = e.check_box :travel_required
+	  p
+	    = e.submit

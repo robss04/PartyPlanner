@@ -8,7 +8,7 @@ class User
   mount_uploader :image, AvatarUploader
 
   has_many :todos
-
+  belongs_to :event
   
   field :id, type: String
   

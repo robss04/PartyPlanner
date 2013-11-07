@@ -1,22 +1,45 @@
 .eventform 
-	h1 Add a task
+  h1 Add a task
 
-	= form_for @todo do |t|
-		p
-		  = t.label :task
-		  br
-		  = t.text_field :task
-		p
-		  = t.label :event
-		  br
-		  = t.select :event, Event.all.map{|event| [event.event_name, event.id]}
-		p
-		  = t.label :user
-		  br
-		  = t.select :user, User.all.map{|user| [user.name, user.id]}
-		p
-		  = t.label :task_duedate
-		  br
-		  = t.date_field :task_duedate
-		p
-		  = t.submit
+  = form_for @todo do |t|
+    p
+      = t.label :task
+      br
+      = t.text_field :task
+    p
+      = t.label :event
+      br
+      = t.collection_select :event_id, Event.all, :id, :event_name, include_blank: true
+    p
+      = t.label :user
+      br
+      = t.grouped_collection_select :user_id, Event.all, :users, :event_name, :id, :name, include_blank: true
+    p
+      = t.label :task_duedate
+      br
+      = t.date_field :task_duedate
+    p
+      = t.submit
+
+javascript:
+  $(function() {
+    var users = $("#todo_user_id").html();
+    console.log('users', users);
+
+    $('#todo_event_id').change(
+      function() {
+        var selectedEvent = $('#todo_event_id :selected').text();
+        console.log(selectedEvent);
+
+        var filteredUsers = $(users).filter("optgroup[label=\"" + selectedEvent + "\"]").html();
+        console.log(filteredUsers);
+
+        if (filteredUsers) {
+          $("#todo_user_id").html(filteredUsers);
+        } else {
+          $("#todo_user_id").empty();
+        }
+
+      }
+    );
+  })

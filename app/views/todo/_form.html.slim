@@ -5,12 +5,10 @@
       = t.text_field :task
     p
       = t.label :event
-      br
-      = t.select :event, Event.all.map{|event| [event.event_name, event.id]}
+      = t.collection_select :event_id, Event.order(:event_name), :id, :event_name, include_blank: true
     p
       = t.label :user
-      br
-      = t.select :user, User.all.map{|user| [user.name, user.id]}
+      = t.collection_select :user_id, User.all.map{|user| [user.name, user.id]}
     p
       = t.label :task_duedate
       br

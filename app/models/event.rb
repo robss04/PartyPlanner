@@ -3,7 +3,9 @@ class Event
   include Mongoid::Timestamps
 
   has_many :todos
-
+  has_many :users
+  belongs_to :created_by, class_name: "User"
+  
   field :event_name
   field :event_location, type: String
   field :event_date, type: String
