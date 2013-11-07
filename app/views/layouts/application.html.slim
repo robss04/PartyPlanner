@@ -4,7 +4,7 @@ html lang="en"
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     
-    title PartyPlanner
+    title BacheloretteBash
     
     = csrf_meta_tags
     
@@ -20,13 +20,10 @@ html lang="en"
       .container
         .page
           == yield
-          
-    #footer
-      .container
-        p.text-muted.credit
-          => link_to "Privacy Policy", privacy_url
-          ' •
-          => link_to "Terms of Use", terms_url
-          ' • © 2013 PartyPlanner
 
+   
+      - if current_user
+        == render partial: 'layouts/footer'
+          
+    
     == render partial: 'layouts/messages'
