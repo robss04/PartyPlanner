@@ -23,8 +23,8 @@ h2, legend {
   text-align: left;
   font-size: 130%;
   line-height: 1.5;
-  color: #5cb85c;
-  border-bottom: 1px solid #5cb85c;
+  color: #303030;
+  border-bottom: 1px solid #303030;
 }
 
 /* Wrapper for page content to push down footer */
@@ -37,7 +37,8 @@ h2, legend {
   /* Pad bottom by footer height */
   padding: 0 0 60px;
 
-  background-image: url('pinkbackground.jpg');
+  /*background-image: url('pinkbackground.jpg');*/
+  background-color: rgb(251, 222, 224);
 
 }
 
@@ -146,9 +147,7 @@ code {
   color: #000000;
 
   background:  white;
-  filter: alpha(opacity=80); /* IE */
-  -moz-opacity:0.8; /* Mozilla */
-  opacity: 0.8; /* CSS3 */
+
 }
 
 .profile h4 {
@@ -181,3 +180,80 @@ code {
   opacity: 0.8; /* CSS3 */
 }
 
+.front-page h4 {
+  text-align: center; 
+  margin-top: 10%; 
+  font-family: 'Pacifico', cursive; 
+  font-size: 50px;
+  color: #303030;
+}
+
+/*.front-page button {
+  font-family: 'Questrial', sans-serif; 
+  font-size: 18px;
+  display:  inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 10px;*/
+  
+  /*background-color: #303030;*/
+  /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  opacity:.5;
+  }*/
+.links {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+}
+
+
+.links a {
+  /*max-width: 40px;*/
+  font-size: 12px;
+  border: 1px solid #303030;
+  box-sizing: content-box;
+  color: #303030;
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 10px;
+  text-align: center;
+  /*text-shadow: 0 0 5px rgba(0,0,0,0.2), 0 0 1px rgba(0,0,0,0.4);*/
+  text-decoration: none;
+  font-family: 'Questrial', sans-serif; 
+  white-space: normal;
+  outline: none;
+  -moz-transition: all 200ms ease 0ms !important;
+  -o-transition: all 200ms ease 0ms !important;
+  -webkit-transition: all 200ms ease 0ms !important;
+  background: none repeat scroll 0 0 rgba(255,255,255,0.04);
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  box-shadow: 0 0 3px rgba(255,255,255,0.25) inset, 0 0 1px rgba(255,255,255,0.2), 0 10px 10px rgba(255,255,255,0.08) inset;
+  margin: 4px;
+}
+
+
+.links a:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+  /*background-color:#dfdfdf;
+  color: #303030;*/
+}
+
+.signinpage {
+  background-color: #FFFAF0;
+  padding: 16px; 
+  -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-border-radius: 10px; /*radius of 10px*/
+  -khtml-border-radius: 10px;
+  -webkit-border-radius: 10px; 
+}

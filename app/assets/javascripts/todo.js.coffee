@@ -1,5 +1,5 @@
 jQuery ->
-  users = $('#todo_event').html()
+  users = $('#user.id').html()
   console.log(users)
   $('#event.id').change ->
     event = $('#user.id :selected').text()

@@ -6,6 +6,7 @@ PartyPlanner::Application.routes.draw do
   delete 'logout' => 'session#destroy', as: :logout
   
   # Registration
+  get  'register' => 'registration#new', as: :register_new
   get  'register/:code' => 'registration#new', as: :register
   post 'register/:code' => 'registration#create'
   

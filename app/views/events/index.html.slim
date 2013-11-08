@@ -4,7 +4,7 @@ table
   - @event.each do |event|
     tr
       td style="width: 40%" #{event.event_name}
-      td style="width 30%" #{event.event_date}
+      td style="width 30%" #{event.event_date.strftime("%b %d, %Y")}
       td style="width 10%" #{event.created_by.try(:name)}      
       td style="width: 5%" = link_to "Show", show_event_url(event)
       td style="width: 5%" = link_to "Edit", edit_event_url(event)

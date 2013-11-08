@@ -1,6 +1,6 @@
 h1 = @event.event_name	
 
-  b #{event.event_date}
+  b #{event.event_date.strftime("%d %b %Y")}
   p = @event.event_location
 
 

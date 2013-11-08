@@ -21,7 +21,7 @@ link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type=
               ul
                 - @events.each do |event|
                   = link_to "#{event.event_name}", show_event_url(event)
-                  = "  #{event.event_date}"
+                  = "  #{event.event_date.strftime('%b %d, %Y')}"
                   / # = link_to "Edit", edit_event_url(event)
 
               button style="margin-right: 4px; font-size: 12px; width: 40%" = link_to "Create New", create_event_url

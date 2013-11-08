@@ -1,6 +1,7 @@
 class Event
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Attributes::Dynamic
 
   has_many :todos
   has_many :users
@@ -8,7 +9,7 @@ class Event
   
   field :event_name
   field :event_location, type: String
-  field :event_date, type: String
+  field :event_date, type: Date
   field :travel_required, type: Boolean, default: false
   field :event_type, type: String
 end
