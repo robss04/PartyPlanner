@@ -1,9 +1,20 @@
-- if @user.state
-	p = @user.state
+h1 Profile Updated!
 
-p = @user.name
-p = @user.email
-p = @user.city
+row style="margin-right: 30px;  float: left"
+  = image_tag @current_user.image.url
 
-/ # p = image_tag @user_profile.image.url
-p test
+table style="float: right"
+  row style="margin-right: 20px" Name:
+  = @user.name
+  br
+  row style="margin-right: 20px" Email:
+  = @user.email
+  br
+  row style="margin-right: 20px" Phone #:
+  = @user.phone_number
+  br
+  row style="margin-right: 20px" Location: 
+  => @user.city
+  = @user.state
+  br
+  br

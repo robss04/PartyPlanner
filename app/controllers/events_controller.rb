@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     @event.created_by = current_user
     @event.save
     
-    redirect_to event_url
+    redirect_to event_url(@event)
   end
   
   # Form for updating a person with ID = params[:id] (in HTML)
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find_by(id: params[:id])
     
-    @event.update_attributes(event_params)
+    @event.update(event_params)
     
     redirect_to event_url(@event)
   end
@@ -50,8 +50,16 @@ class EventsController < ApplicationController
   private
   
   def event_params
+    year = params[:event].delete("event_time(1i)")
+    month = params[:event].delete("event_time(2i)")
+    day = params[:event].delete("event_time(3i)")
+    hours = params[:event].delete("event_time(4i)")
+    minutes = params[:event].delete("event_time(5i)")
+
+    params[:event][:event_time] = Time.new(year, month, day, hours, minutes, 0)
+
     params.require(:event).permit(
-      :event_name, :event_location, :event_date
+      :event_name, :event_location, :event_date, :event_venue, :event_time, :bride_name, :event_type, :hotel, :flight_carrier, :flight_number, :date_start, :date_end
     )
   end
 end

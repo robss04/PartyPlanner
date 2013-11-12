@@ -4,11 +4,14 @@ table
   - @event.each do |event|
     tr
       td style="width: 40%" #{event.event_name}
-      td style="width 30%" #{event.event_date.strftime("%b %d, %Y")}
-      td style="width 10%" #{event.created_by.try(:name)}      
+      - if event.event_date 
+        td style="width 25%" #{event.event_date.strftime("%b %d, %Y")}
+      - else
+        td style="width 25%" TBD
+      td style="width 20%" #{event.created_by.try(:name)}      
       td style="width: 5%" = link_to "Show", show_event_url(event)
       td style="width: 5%" = link_to "Edit", edit_event_url(event)
-      td style="width: 5%" = link_to "Delete", event_url(event), method: :delete, confirm: "Are you sure?"
+      td style="width: 5%" = link_to "Delete", delete_event_url(event), method: :delete, confirm: "Are you sure?"
 
       
 

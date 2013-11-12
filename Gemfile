@@ -17,6 +17,7 @@ gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+
 group :development, :test do
   gem 'launchy'
   gem "better_errors"

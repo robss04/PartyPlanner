@@ -24,10 +24,10 @@ PartyPlanner::Application.routes.draw do
   get 'events/:id' => 'events#show', as: :show_event # show one event
   get 'events/:id/edit' => 'events#edit', as: :edit_event# form to edit event
   
-  post 'events' => 'events#create' # create a new event
+  post 'events/:id' => 'events#create', as: :events # create a new event
   put 'events/:id' => 'events#update' # update a event
   patch 'events/:id' => 'events#update' # update an attribute of a event
-  delete 'events/:id' => 'events#destroy' # delete a event
+  delete 'events/:id' => 'events#destroy', as: :delete_event # delete a event
 
   #tasks
   get 'todo' => 'todo#index', as: :todos # list all events

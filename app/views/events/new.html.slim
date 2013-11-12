@@ -1,28 +1,122 @@
 .eventform 
-	h1 Add a new event
+  h1 Add a new event
 
-	= form_for @event, url: "/events" do |e|
-	  p
-	    = e.label :event_name
-	    br
-	    = e.text_field :event_name
-	  p 
-	    = e.label :event_type
-	    br
-	    = e.select :event_type, ["Girl's Night Out", "Girl's Weekend"]
-	  p
-	    = e.label :event_location
-	    br
-	    = e.text_field :event_location
-	  p
-	    = e.label :event_date
-	    br
-	    = e.date_field :event_date
-	  p 
-	    = e.label :travel_required
-	    br
-	    = e.check_box :travel_required 
-	    br
-	    = e.check_box :travel_required
-	  p
-	    = e.submit
+  
+  = form_for @event, url: "/events/#{@event.id}" do |e|
+    #event_name  
+      p
+        => e.label :event_name
+        = e.text_field :event_name
+    #bride_name  
+      p
+        => e.label :bride_name
+        = e.text_field :bride_name
+    #party_type 
+      p 
+        => e.label :event_type
+        = e.select :event_type, ["Please select", "Girl's Night Out", "Girl's Weekend"]
+    #gno_venue
+      p 
+      => e.label :event_venue
+      = e.text_field :event_venue
+      br
+    #gno_location  
+      p
+        => e.label :event_location, "Location"
+        = e.text_field :event_location
+    #gno_date  
+      p
+        => e.label :event_date
+        = e.date_field :event_date
+    #gno_time
+      p
+        => e.label :event_time
+        = e.time_select :event_time
+    #gw_hotel
+      p
+        => e.label :hotel
+        = e.text_field :hotel
+    #gw_flightcarrier
+      p
+        => e.label :flight_carrier
+        = e.text_field :flight_carrier
+    #gw_flightnumber
+      p 
+        => e.label :flight_number
+        = e.text_field :flight_number
+    #gw_datestart  
+      p
+        => e.label :date_start
+        = e.date_field :date_start
+    #gw_dateend 
+      p
+        => e.label :date_end
+        = e.date_field :date_end
+
+
+    #submit  
+      p
+        = e.submit
+
+  javascript:
+      $('#gno_location').hide();
+      $('#gno_date').hide();
+      $('#gno_venue').hide();
+      $('#event_time').hide();
+      $('#gno_location').hide();
+      $('#gno_date').hide();
+      $('#gno_time').hide();
+      $('#gw_hotel').hide();
+      $('#gw_flightcarrier').hide();
+      $('#gw_flightnumber').hide();
+      $('#gw_datestart').hide();
+      $('#gw_dateend').hide()
+
+      var showPartyDetails = function(e) {
+        val = $('#event_event_type').val();
+        console.log(val);
+
+        switch (val) {
+          case "Girl's Night Out":
+            $('#gno_venue').show();
+            $('#event_time').show();
+            $('#gno_location').show();
+            $('#gno_date').show();
+            $('#gno_time').show();
+            $('#gw_hotel').hide();
+            $('#gw_flightcarrier').hide();
+            $('#gw_flightnumber').hide();
+            $('#gw_datestart').hide();
+            $('#gw_dateend').hide()
+            break;
+          case "Girl's Weekend":
+            $('#gno_venue').hide();
+            $('#event_time').hide();
+            $('#gno_location').hide();
+            $('#gno_date').hide();
+            $('#gno_time').hide();
+            $('#gw_hotel').show();
+            $('#gw_flightcarrier').show();
+            $('#gw_flightnumber').show();
+            $('#gw_datestart').show();
+            $('#gw_dateend').show()
+            break;
+          case "Please select":
+            $('#gno_venue').hide();
+            $('#event_time').hide();
+            $('#gno_location').hide();
+            $('#gno_date').hide();
+            $('#gno_time').hide();
+            $('#gw_hotel').hide();
+            $('#gw_flightcarrier').hide();
+            $('#gw_flightnumber').hide();
+            $('#gw_datestart').hide();
+            $('#gw_dateend').hide()
+            break;            
+        };
+      };
+      
+
+      $( '#party_type' ).on('change', showPartyDetails);
+
+      showPartyDetails();

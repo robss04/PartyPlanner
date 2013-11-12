@@ -1,0 +1,46 @@
+.navbar-default {
+  background-color: rgb(251, 222, 224);
+}
+
+.navbar-brand {
+  color: #303030 !important;
+  font-family: 'Pacifico', cursive;
+  font-size: 24px;
+}
+
+.navbar-brand:hover {
+  background: url(http://24.media.tumblr.com/7dde0c3e9b397b6a86897e6519f83c05/tumblr_mu0b7v1tyK1s5jjtzo1_500.gif); 
+  -webkit-text-fill-color: transparent; 
+  -webkit-background-clip: text; 
+  filter: alpha(opacity=400); /* IE */
+  -moz-opacity:3; /* Mozilla */
+  opacity: 3;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+}
+
+.actions {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+.actions button {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.actions button:hover{
+  background-color: grey;
+
+}
+
+.actions a{
+  text-decoration: none;
+}
+.actions  a:hover{
+  font-size: 14px;
+  color: black;
+}

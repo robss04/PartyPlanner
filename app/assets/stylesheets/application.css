@@ -1,5 +1,6 @@
 /*
  *= require bootstrap
+ *= require layout
  *= require profile
  */
 
@@ -19,6 +20,11 @@ h1, caption {
   border-bottom: 1px solid #cccccc;
 }
 
+.nav-header-links {
+  margin: 14px;
+
+}
+
 h2, legend {
   text-align: left;
   font-size: 130%;
@@ -26,6 +32,8 @@ h2, legend {
   color: #303030;
   border-bottom: 1px solid #303030;
 }
+
+
 
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -73,16 +81,8 @@ h2, legend {
   color: green;
 }
 
-/* Set the fixed height of the footer here */
-#header {
-  height: 46px;
-  background-image: url('offblackcardstock.png');
-}
 
-#footer {
-  height: 60px;
-  background-image: url('offblackcardstock.png');
-}
+
 
 
 /* Custom page CSS
@@ -91,6 +91,7 @@ h2, legend {
 
 #wrap > .container {
   padding: 60px 15px 0;
+
 }
 
 .container .credit {
@@ -103,9 +104,7 @@ h2, legend {
   padding-right: 15px;
 }
 
-code {
-  font-size: 80%;
-}
+
 
 .top {
   height: 100%;
@@ -117,13 +116,13 @@ code {
 #dashboard {
   max-width: 1100px;
   border-radius: 10px;
-  border: 3px solid #CC0099;
-  height: 600px;
+  border: 3px solid #cccccc;
+  height: auto;
   padding: 8px;
   margin: 10px;
   color: #000000;
 
-  background:  white;
+  background:  #FFFAF0;
   filter: alpha(opacity=80); /* IE */
   -moz-opacity:0.8; /* Mozilla */
   opacity: 0.8; /* CSS3 */
@@ -131,7 +130,7 @@ code {
 
 #dashboard h1{
   text-align: center;
-  font-family: 'Della Respira', serif;
+  font-family: 'Questrial', sans-serif;
   font-size: 40px;
   margin: 0px;  
   border-bottom: none;
@@ -139,20 +138,21 @@ code {
 
 .profile {
   border-radius: 10px;
-  border: 3px solid #CC0099;
+  border: 3px solid #cccccc;
   width: 250px;
-  height: 200px;
+  min-height: 250px;
   margin: 4px;
   padding: 2px;
   color: #000000;
 
-  background:  white;
+  background:  #FFFAF0;
+  resize:both;
+  overflow:auto;
 
 }
 
 .profile h4 {
   text-align: center;
-  font-family: 'Della Respira', serif;
   font-size: 24px;
   border-bottom: 1px solid #cccccc;
 } 
@@ -163,10 +163,7 @@ code {
 }
 
 
-.profile button {
-  font-size: 14px;
-  border-radius: 10px;
-} 
+
 
 .eventform {
   border: 2px solid black;
@@ -181,12 +178,13 @@ code {
 }
 
 .front-page h4 {
-  text-align: center; 
   margin-top: 10%; 
   font-family: 'Pacifico', cursive; 
   font-size: 50px;
+  text-align: center;
   color: #303030;
 }
+
 
 /*.front-page button {
   font-family: 'Questrial', sans-serif; 
@@ -257,3 +255,4 @@ code {
   -khtml-border-radius: 10px;
   -webkit-border-radius: 10px; 
 }
+

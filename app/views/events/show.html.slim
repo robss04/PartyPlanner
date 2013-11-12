@@ -1,8 +1,56 @@
 h1 = @event.event_name	
 
-  b #{event.event_date.strftime("%d %b %Y")}
-  p = @event.event_location
+.col-md-4.profile style="float:left"
+  h4 Event Details
+  table 
+      row style="margin: 10px" Bride Name: 
+      = @event.bride_name 
+      br
+      row style="margin: 10px" Event Type:
+      = @event.event_type
+      br
+      - if @event.event_venue
+        row style="margin: 10px" Event Venue: 
+        = @event.event_venue
+      - else
+        row style="margin: 10px" Hotel: 
+        = @event.hotel
+      
+      - if @event.event_date
+        br
+          row style="margin: 10px" Event Date:
+          = @event.event_date.strftime("%b %d, %Y")
+      - else
+        br
+
+      - if @event.event_type == "Girl's Night Out"
+        p OMG GIRLS NIGHT OUT
+      - else
+        p no gno
+
+      - if @event.event_type == "Girl's Weekend"
+        p test
+      - else
+        p no gw
+
+      - if @event.event_type == "Please Select"
+        p It's not been selected
+      - else 
+        p no selection
+
+      row style="margin: 10px" Event Time:
+
+      
+      .actions
+        button = link_to "Edit", edit_event_url
 
 
-.col-md-4.profile
-          h4 Guest List 
+ 
+
+
+.col-md-4.profile style="float: center"
+  h4 Guest List
+
+br 
+br
+        

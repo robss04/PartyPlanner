@@ -3,33 +3,51 @@ link href='http://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type=
 #wrap
   #dashboard
 
-    h1 = "#{current_user.name}'s Dashboard"
+    h1 = "You're invited, #{current_user.name}"
     .col-lg-12.col-lg-offset-0
       table#users-table.table.table-bordered.table-striped
             .col-md-4.profile
               h4 Personal Profile
               .col-sm-12
                 p style="float: left; margin-right: 8px" = image_tag @current_user.image.thumb.url
-                p #{current_user.name}
+                br
+                p style="font-size: 16px;"#{current_user.name}
                 p #{current_user.city}, #{current_user.state}
                 br
-                b Contact Information
-                p #{current_user.email}
-                p #{current_user.phone_number}
+                br
+              
+                u User Information
+                ul
+                li #{current_user.email}
+                li #{current_user.phone_number}
+                - if (current_user.travel_booked = true)
+                  li Travel Booked: &#x2713;
+                - else
+                  li Travel Pending
+
             .col-md-4.profile
               h4 Events
-              ul
-                - @events.each do |event|
-                  = link_to "#{event.event_name}", show_event_url(event)
-                  = "  #{event.event_date.strftime('%b %d, %Y')}"
-                  / # = link_to "Edit", edit_event_url(event)
+              p 
 
-              button style="margin-right: 4px; font-size: 12px; width: 40%" = link_to "Create New", create_event_url
-              button style="margin-right: 4px; font-size: 12px;width: 40%" = link_to "View All", event_url
+                  - @events.each do |event|
+                    p style="text-align: center;"
+                      => link_to "#{event.event_name}", show_event_url(event)
+                      h ,       
+                      - if event.event_date 
+                        span style="text-align: right" #{event.event_date.strftime("%b %d, %Y")}
+                      - else
+                        span style="text-align: right" TBD
+                    hr
+                      / # = link_to "Edit", edit_event_url(event)
+              .actions
+                button style="margin-right: 4px; width: 40%" = link_to "Create New", create_event_url
+                button style="margin-right: 4px; width: 40%" = link_to "View All", event_url
             
             .col-md-4.profile
               h4 To Do List
-              button = link_to "Create New Task", create_todo_url
+              .actions
+                button style="margin-right: 4px; width: 40%" = link_to "Create New", create_todo_url
+                button style="margin-right: 4px; width: 40%" = link_to "View All", todo_url
 
 
 
